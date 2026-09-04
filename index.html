@@ -1,0 +1,363 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Teachers' Day Invitation</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Georgia, serif;
+        background: #f8f1e7;
+        color: #4b2e1f;
+        min-height: 100vh;
+    }
+
+    .page {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 25px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 650px;
+        background: white;
+        padding: 45px 30px;
+        text-align: center;
+        border-radius: 25px;
+        box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+        border: 2px solid #d6b98c;
+    }
+
+    .small-title {
+        font-size: 18px;
+        letter-spacing: 3px;
+        margin-bottom: 15px;
+        color: #a06b32;
+    }
+
+    h1 {
+        font-size: 48px;
+        margin-bottom: 15px;
+        color: #7b421f;
+    }
+
+    h2 {
+        font-size: 30px;
+        margin: 15px 0;
+        color: #7b421f;
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 1.7;
+        margin: 12px 0;
+    }
+
+    .flower {
+        font-size: 40px;
+        margin: 15px;
+    }
+
+    .teacher-photo {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 6px solid #d6b98c;
+        margin: 15px auto 20px;
+        display: block;
+    }
+
+    .details {
+        margin-top: 25px;
+        padding: 20px;
+        background: #faf3e8;
+        border-radius: 15px;
+    }
+
+    .button {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 15px 32px;
+        background: #7b421f;
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        font-size: 18px;
+        cursor: pointer;
+        border: none;
+        font-family: Georgia, serif;
+    }
+
+    .button:hover {
+        background: #a06b32;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    @media (max-width: 500px) {
+        h1 {
+            font-size: 36px;
+        }
+
+        h2 {
+            font-size: 25px;
+        }
+
+        .card {
+            padding: 35px 20px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- ========================= -->
+<!-- PAGE 1: NORMAL INVITATION -->
+<!-- ========================= -->
+
+<div id="homePage" class="page">
+
+    <div class="card">
+
+        <div class="small-title">
+            A SPECIAL INVITATION
+        </div>
+
+        <div class="flower">🌸</div>
+
+        <h1>Happy Teachers' Day</h1>
+
+        <p>
+            To the wonderful teachers who inspire us,
+            guide us and make every day of learning special.
+        </p>
+
+        <div class="details">
+
+            <h2>You're Invited!</h2>
+
+            <p>
+                We warmly invite you to join us in celebrating
+                the incredible teachers who make a difference
+                in our lives.
+            </p>
+
+            <p>
+                📅 <b>Date:</b> 05 September 2026
+            </p>
+
+            <p>
+                📍 <b>Venue:</b> In our Classroom BSC-B(207)
+            </p>
+
+            <p>
+                ⏰ <b>Time:</b>  From 09:00 AM
+            </p>
+
+        </div>
+
+        <p>
+            With love and gratitude ❤️
+        </p>
+
+        <!-- THIS BUTTON OPENS THEIR PERSONAL INVITATION -->
+
+        <button class="button" onclick="openMyInvitation()">
+            Open My Invitation
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ========================= -->
+<!-- PAGE 2: PERSONAL INVITATION -->
+<!-- ========================= -->
+
+<div id="teacherPage" class="page hidden">
+
+    <div class="card">
+
+        <div class="small-title">
+            A SPECIAL INVITATION FOR
+        </div>
+
+        <img
+            id="teacherPhoto"
+            class="teacher-photo"
+            src=""
+            alt="Teacher Photo"
+        >
+
+        <h2 id="teacherName"></h2>
+
+        <div class="flower">🌸</div>
+
+        <p>
+            Dear <b id="teacherName2"></b>,
+        </p>
+
+        <p>
+            You have inspired us, guided us and helped us
+            become better every day.
+        </p>
+
+        <p>
+            On this Teachers' Day, we would be honoured
+            to have you with us as we celebrate
+            your dedication and contribution.
+        </p>
+
+        <div class="details">
+
+            <h2>Teachers' Day Celebration</h2>
+
+            <p>
+                📅 <b>Date:</b> Teachers' Day
+            </p>
+
+            <p>
+                📍 <b>Venue:</b> School Campus
+            </p>
+
+            <p>
+                ⏰ <b>Time:</b> Please add your time
+            </p>
+
+        </div>
+
+        <p>
+            Thank you for being an amazing teacher. ❤️
+        </p>
+        <button class="button" onclick="goBack()">
+    ← Back to Invitation
+</button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    /* =========================
+       TEACHER INFORMATION
+       ========================= */
+
+    const teachers = {
+
+        "1": {
+            name: "Chamundeswari Mam",
+            photo: "images/chamu mam.jpeg"
+        },
+
+        "2": {
+            name: "Govardhan Sir",
+            photo: "images/crt sir.jpeg"
+        },
+
+        "3": {
+            name: "Damodar Sir",
+            photo: "images/damu sir.jpeg"
+        },
+
+        "4": {
+            name: "Deekshitha Mam",
+            photo: "images/deeks mam.jpeg"
+        },
+
+        "5": {
+            name: "Dinesh Sir",
+            photo: "images/dnesh sir.jpeg"
+        },
+
+        "6": {
+            name: "Kusuma Mam",
+            photo: "images/kusum mam.jpeg"
+        },
+
+        "7": {
+            name: " Our HOD Prasad Sir",
+            photo: "images/prasad sir.jpeg"
+        },
+
+        "8": {
+            name: "Our Principal Siva Shankar sir",
+            photo: "images/prince.jpeg"
+        },
+
+        "9": {
+            name: "Revanth Sir",
+            photo: "images/revanth sir.jpeg"
+        },
+
+        "10": {
+            name: " Our Vice Principal Venu Sir",
+            photo: "images/venu sir.jpeg"
+        }
+
+    };
+
+
+    /* =========================
+       GET TEACHER NUMBER
+       FROM QR LINK
+       ========================= */
+
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const teacherId = urlParams.get("teacher");
+
+
+    /* =========================
+       OPEN PERSONAL INVITATION
+       ========================= */
+
+    function openMyInvitation() {
+
+        if (teacherId && teachers[teacherId]) {
+
+            const teacher = teachers[teacherId];
+
+            document.getElementById("homePage").classList.add("hidden");
+
+            document.getElementById("teacherPage").classList.remove("hidden");
+
+            document.getElementById("teacherPhoto").src = teacher.photo;
+
+            document.getElementById("teacherName").textContent = teacher.name;
+
+            document.getElementById("teacherName2").textContent = teacher.name;
+
+        } else {
+
+            alert("Teacher invitation not found.");
+
+        }
+
+    }
+
+function goBack() {
+    document.getElementById("teacherPage").classList.add("hidden");
+    document.getElementById("homePage").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
