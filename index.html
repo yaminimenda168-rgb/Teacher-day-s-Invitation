@@ -166,18 +166,16 @@
             </p>
 
             <p>
-                ⏰ <b>Time:</b>  From 09:00 AM
+                ⏰ <b>Time:</b> From 09:45 AM
             </p>
 
         </div>
 
         <p>
-            With love and gatitude ❤️
+            With love and gratitude ❤️
         </p>
 
-
-        
- <button class="button" onclick="openMyInvitation()">
+        <button class="button" onclick="openMyInvitation()">
             Open My Invitation
         </button>
 
@@ -245,9 +243,10 @@
         <p>
             Thank you for being an amazing teacher. ❤️
         </p>
+
         <button class="button" onclick="goBack()">
-    ← Back to Invitation
-</button>
+            ← Back to Invitation
+        </button>
 
     </div>
 
@@ -269,47 +268,47 @@
 
         "2": {
             name: "Govardhan Sir",
-            photo: "./images/crt%20sir.jpeg"
+            photo: "images/crt%20sir.jpeg"
         },
 
         "3": {
             name: "Damodar Sir",
-            photo: "./images/damu%20sir.jpeg"
+            photo: "images/damu%20sir.jpeg"
         },
 
         "4": {
             name: "Deekshitha Mam",
-            photo: "./images/deeks%20mam.jpeg"
+            photo: "images/deeks%20mam.jpeg"
         },
 
         "5": {
             name: "Dinesh Sir",
-            photo: "./images/dinesh%20sir.jpeg"
+            photo: "images/dinesh%20sir.jpeg"
         },
 
         "6": {
             name: "Kusuma Mam",
-            photo: "./images/kusum%20mam.jpeg"
+            photo: "images/kusum%20mam.jpeg"
         },
 
         "7": {
-            name: " Our HOD Prasad Sir",
-            photo: "./images/prasad%20sir.jpeg"
+            name: "Our HOD Prasad Sir",
+            photo: "images/prasad%20sir.jpeg"
         },
 
         "8": {
-            name: "Our Principal Siva Shankar sir",
-            photo: "./images/prince.jpeg"
+            name: "Our Principal Siva Shankar Sir",
+            photo: "images/prince.jpeg"
         },
 
         "9": {
             name: "Revanth Sir",
-            photo: "./images/revanth%20sir.jpeg"
+            photo: "images/revanth%20sir.jpeg"
         },
 
         "10": {
-            name: " Our Vice Principal Venu Sir",
-            photo: "./images/venu%20sir.jpeg"
+            name: "Our Vice Principal Venu Sir",
+            photo: "images/venu%20sir.jpeg"
         }
 
     };
@@ -321,7 +320,6 @@
        ========================= */
 
     const urlParams = new URLSearchParams(window.location.search);
-
     const teacherId = urlParams.get("teacher");
 
 
@@ -336,14 +334,18 @@
             const teacher = teachers[teacherId];
 
             document.getElementById("homePage").classList.add("hidden");
-
             document.getElementById("teacherPage").classList.remove("hidden");
 
-            document.getElementById("teacherPhoto").src = teacher.photo;
+            const teacherPhoto =
+                document.getElementById("teacherPhoto");
 
-            document.getElementById("teacherName").textContent = teacher.name;
+            teacherPhoto.src = teacher.photo;
 
-            document.getElementById("teacherName2").textContent = teacher.name;
+            document.getElementById("teacherName").textContent =
+                teacher.name;
+
+            document.getElementById("teacherName2").textContent =
+                teacher.name;
 
         } else {
 
@@ -353,11 +355,18 @@
 
     }
 
- 
-function goBack() {
-    document.getElementById("teacherPage").classList.add("hidden");
-    document.getElementById("homePage").classList.remove("hidden");
-}
+
+    /* =========================
+       BACK BUTTON
+       ========================= */
+
+    function goBack() {
+
+        document.getElementById("teacherPage").classList.add("hidden");
+        document.getElementById("homePage").classList.remove("hidden");
+
+    }
+
 </script>
 
 </body>
